@@ -1,5 +1,5 @@
 from typing import Self, Any
-from c10_stacks import Stack
+from base import Stack
 
 class labyrinth:
     """
