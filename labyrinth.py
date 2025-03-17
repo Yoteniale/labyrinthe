@@ -122,6 +122,26 @@ class labyrinth:
         if self.liste_voisines_libres(i,j) == None:
             self.tab[i][j] = 5
 
+    def solve(self) -> Stack :
+        sol = Stack()
+        x, y = self.depart()
+        w, z = self.arrivee()
+        self.est_visitee(x, y)
+        l = self.liste_voisines_libres(x, y)
+        while x != w or y != z: 
+            l = self.liste_voisines_libres(x, y)
+            x, y = l[0]
+            self.est_visitee(x, y)
+            sol.put((x, y))
+            l = self.liste_voisines_libres(x, y)
+            if self.liste_voisines_libres(x, y) == None and (x, y) != (w, z):
+                while self.liste_voisines_libres(x, y) == None:
+                    x, y = sol.get()
+
+
+        while not sol.is_empty():
+                print(sol.get())
+
 
 
 
@@ -139,22 +159,5 @@ lab1 = labyrinth(tab2)
 
 if __name__ == '__main__':
     clab1 = lab1
-    sol = Stack()
-    x, y = clab1.depart()
-    w, z = clab1.arrivee()
-    clab1.est_visitee(x, y)
-    l = clab1.liste_voisines_libres(x, y)
-    while x != w or y != z: 
-        l = clab1.liste_voisines_libres(x, y)
-        x, y = l[0]
-        clab1.est_visitee(x, y)
-        sol.put((x, y))
-        l = clab1.liste_voisines_libres(x, y)
-        if clab1.liste_voisines_libres(x, y) == None and (x, y) != (w, z):
-            while clab1.liste_voisines_libres(x, y) == None:
-                x, y = sol.get()
-
-
-    while not sol.is_empty():
-            print(sol.get())
+    clab1.solve()
 
