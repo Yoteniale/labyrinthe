@@ -56,6 +56,7 @@ class labyrinth:
                 if self.tab[i][j] == 2:
                     return i, j
             i += 1 
+        
 
     def arrivee(self) -> int:
         """
@@ -160,4 +161,4 @@ clab1 = lab1
 
 if __name__ == '__main__':
 
-    print(clab1.solve())
+    print(clab1.depart())
