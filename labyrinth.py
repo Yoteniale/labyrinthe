@@ -14,7 +14,8 @@ class labyrinth:
         - .est_valide : vérifie la véracité des coordonées dans un laryrinthe
         - .nb_cases_vides : compte le nombre de cases vides dans un labyrinthe
         - .est_visitee : marque une case comme visitée
-        - .liste_voisines_libres : donne les cases libres à proximité
+        - .liste_voisines_libres : donne les cases libres à proximité$$
+        - .solve : solves the labyrinth
     
     """
     def __init__(self , li : list):
@@ -52,7 +53,7 @@ class labyrinth:
         i = 0
         for _ in self.tab:
             for j in range(len(self.tab[i])):
-                if j == 2:
+                if self.tab[i][j] == 2:
                     return i, j
             i += 1 
 
@@ -127,7 +128,6 @@ class labyrinth:
         x, y = self.depart()
         w, z = self.arrivee()
         self.est_visitee(x, y)
-        l = self.liste_voisines_libres(x, y)
         while x != w or y != z: 
             l = self.liste_voisines_libres(x, y)
             x, y = l[0]
@@ -138,10 +138,10 @@ class labyrinth:
                 while self.liste_voisines_libres(x, y) == None:
                     x, y = sol.get()
 
-
-        while not sol.is_empty():
-                print(sol.get())
-
+        l_sol = []
+        while not sol.is_empty:
+                l_sol.append(sol.get())
+        return l_sol
 
 
 
@@ -155,9 +155,9 @@ tab2 = [[1, 1, 1, 1, 1, 1, 1],
 
 
 lab1 = labyrinth(tab2)
+clab1 = lab1
 
 
 if __name__ == '__main__':
-    clab1 = lab1
-    clab1.solve()
 
+    print(clab1.solve())

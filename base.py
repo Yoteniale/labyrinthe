@@ -79,6 +79,7 @@ class Stack:  #Pile
     def __init__(self) -> None:
         self.data = LinkedList(None)
 
+    @property
     def is_empty(self) -> bool:
         """
         Détermine si la pile est vide.
@@ -95,7 +96,8 @@ class Stack:  #Pile
         """
         Retire l'element du sommet de la pile, et le renvoie.
         """
-        assert not self.is_empty(), "oh no, the list is vide"
+        assert not self.is_empty, "oh no, the list is empty"
         removed_elem = self.data.first.content
         self.data.remove_ele_beg()
         return removed_elem
+    
