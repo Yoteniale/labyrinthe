@@ -136,7 +136,7 @@ class labyrinth:
             sol.put((x, y))
             l = self.liste_voisines_libres(x, y)
             if self.liste_voisines_libres(x, y) == None and (x, y) != (w, z):
-                while self.liste_voisines_libres(x, y) == None:
+                while self.liste_voisines_libres(x, y) == None or (x, y) != (w, z):
                     x, y = sol.get()
 
         l_sol = []
