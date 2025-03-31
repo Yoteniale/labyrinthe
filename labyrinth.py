@@ -140,8 +140,6 @@ class labyrinth:
                     try:
                         x, y = sol.get()
                     except AssertionError:
-                        return False
-
 
         l_sol = []
         while not sol.is_empty:
@@ -174,4 +172,4 @@ clab1 = lab1
 
 if __name__ == '__main__':
 
-    print(clab1.solve())
+    print(clab1.depart())
