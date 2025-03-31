@@ -136,13 +136,26 @@ class labyrinth:
             sol.put((x, y))
             l = self.liste_voisines_libres(x, y)
             if self.liste_voisines_libres(x, y) == None and (x, y) != (w, z):
-                while self.liste_voisines_libres(x, y) == None:
-                    x, y = sol.get()
+                while self.liste_voisines_libres(x, y) == None or (x, y) != (w, z):
+                    try:
+                        x, y = sol.get()
+                    except AssertionError:
+                        return False
+
 
         l_sol = []
         while not sol.is_empty:
                 l_sol.append(sol.get())
         return l_sol
+    
+    def refresh(self):
+        """
+        refreshes the grid by replacing the 4s by 0s
+        """
+        for i in range(self.nb_ligne()):
+            for j in range(self.nb_colonne()):
+                if self.tab[i][j] == 4:
+                    self.tab[i][j] = 0
 
 
 
@@ -161,4 +174,4 @@ clab1 = lab1
 
 if __name__ == '__main__':
 
-    print(clab1.depart())
+    print(clab1.solve())
