@@ -140,6 +140,7 @@ class labyrinth:
                     try:
                         x, y = sol.get()
                     except AssertionError:
+                        return False
 
         l_sol = []
         while not sol.is_empty:
