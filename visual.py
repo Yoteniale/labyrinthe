@@ -1,5 +1,5 @@
 from tkinter import *
-from labyrinth import clab1, tab2
+from generator import clab, tab
  
 class Table:
     """
@@ -24,8 +24,8 @@ class Table:
                 
 
                 
-total_rows = clab1.nb_ligne()
-total_columns = clab1.nb_colonne()
+total_rows = clab.nb_ligne()
+total_columns = clab.nb_colonne()
 
 
 #window settings
@@ -38,7 +38,7 @@ window.minsize(800,600)
 frame = Frame(window, bg='#16377b')
 frame_lab = Frame(window, bg='#16377b')
 frame_sol = Frame(window, bg='#16377b')
-t = Table(frame_lab, tab2)
+t = Table(frame_lab, tab)
 
 #labels of main frame
 label_title = Label(frame, text='Labyrinth soliving game', font=("Calibri", 40),bg='#16377b' , fg='#f5f5f5' )
@@ -62,7 +62,7 @@ def handle_click(event):
     text.config(bg="white")
 
 #solution print
-solution = clab1.solve()
+solution = clab.solve()
 
 text = Text(frame_sol, height= len(solution), width=10 )
 text.config(bg='#000000')
