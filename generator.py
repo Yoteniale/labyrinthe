@@ -1,5 +1,4 @@
 from random import randint
-from pprint import pprint
 from labyrinth import labyrinth
 
 
@@ -48,5 +47,7 @@ while clab.solve():
 
 clab.tab[x][y] = 2
 clab.refresh()
-clab.affiche()
+#
 
+if __name__ == '__main__':
+    clab.affiche()
