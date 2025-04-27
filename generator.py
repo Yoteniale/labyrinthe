@@ -47,7 +47,7 @@ while clab.solve():
 
 clab.tab[x][y] = 2
 clab.refresh()
-#
+
 
 if __name__ == '__main__':
     clab.affiche()
